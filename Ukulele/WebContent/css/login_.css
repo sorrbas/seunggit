@@ -1,0 +1,160 @@
+.login-popup
+
+
+
+ {
+    display: none;
+    padding: 10px;
+    float: left;
+    font-size: 1em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 99999;
+    box-shadow: 0px 0px 0 0;
+    font-family: 'Ubuntu', sans-serif;
+
+
+}
+
+
+img.btn_close {
+    float: right;
+    font-size: 25px;
+}
+
+#search_id,
+#search_pw {
+    padding-bottom: 20px;
+}
+
+
+
+
+
+.login_main {
+    position: relative;
+    box-sizing: border-box;
+    background-color: white;
+    width: 480px;
+    height: 450px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+
+}
+
+.login_sign {
+    
+    margin-top: 10px;
+            margin-left: 30px;
+}
+
+.login_sign img {
+     
+            width: 200px;
+            
+}
+
+.login_username {
+    margin-top: 30px;
+    border-radius: 2px;
+    width: 100%;
+    height: 40px;
+     border: 1px solid #e5e5e5;
+    padding: 9px 12px;
+    outline: none;
+    box-sizing: border-box;
+
+}
+
+input::placeholder{
+    color: #999999;
+}
+
+.login_email {
+   margin-top: 30px;
+    border-radius: 2px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    padding: 9px 12px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.login_password {
+    margin-top: 15px;
+    border-radius: 2px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    padding: 9px 12px;
+    outline: none;
+    box-sizing: border-box;
+
+}
+
+.login_mid !important{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+}
+
+
+.login_username:focus,
+.login_password:focus {
+    border: 2px solid rgba(0, 0, 0, 0.18) !important;
+
+}
+
+.login_submit {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    padding: 13px 30px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    line-height: 1px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    border-radius: 3px;
+    border-style: none;
+    
+}
+
+
+.loginEnd{
+    text-align: center;
+    font-size: 11px;
+}
+
+.loginLine{
+    color: #bcbcbc;
+    font-size: 11px;
+    margin-bottom: 35px;
+    
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .login_main {
+        border-radius: 0px;
+    }
+
+
+    img.btn_close {
+        float: right;
+        margin: -28px -28px 0 0;
+    }
+
+  

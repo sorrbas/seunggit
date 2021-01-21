@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+#wayToCome {
+	text-align: center;
+	margin: 0px 300px;
+}
+#waytocome_top{
+	text-align: left;
+	padding-left: 50px;
+}
+#waytocome_top h1{
+	font-size: 40px;
+	border-bottom: 5px solid #000069;
+}
+#wayToCome a {
+	text-decoration: none;
+}
+
+#wayToCome ul {
+	list-style-type: none;
+	display: flex;
+	width: 100%;
+	padding: 0px;
+	margin: 20px 0px;
+}
+
+#wayToCome li {
+	width: 100%;
+	height: 80px;
+	background-color: lightgray;
+	margin: 1px;
+	border-radius: 5px;
+}
+
+#wayToCome ul li a {
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+}
+
+#map {
+	height: 500px;
+}
+
+#centerinfo {
+	width: 100%;
+}
+
+#centerinfo tr td:first-child {
+	background-color: #000069;
+	width: 30%;
+	height: 50px;
+	color:white;
+	font-weight: bold;

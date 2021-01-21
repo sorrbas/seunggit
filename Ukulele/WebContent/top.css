@@ -1,0 +1,118 @@
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
+/* Nav */
+
+	body {
+		padding-top: 3.25em;
+	}
+
+	#nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+		background-color: rgba(255, 255, 255, 0.95);
+/*		background-image: url("images/overlay.png");*/
+		width: 100%;
+		height: 3.25em;
+		line-height: 3.25em;
+		text-align: center;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		cursor: default;
+        display: flex;
+        box-shadow: 3px 3px 5px #ccc;
+        
+	}
+
+		#nav ul {
+			position: relative;
+			z-index: 1001;
+            width: 100%;
+		}
+
+		#nav li {
+			display: inline-block;
+			margin: 0 0.5em 0 0.5em;
+			top: 0;
+			position: relative;
+			-moz-transition: top .15s ease-in-out;
+			-webkit-transition: top .15s ease-in-out;
+			-o-transition: top .15s ease-in-out;
+			-ms-transition: top .15s ease-in-out;
+			transition: top .15s ease-in-out;
+           
+		}
+
+			#nav li > ul {
+				display: none;
+			}
+
+			#nav li a, #nav li span {
+				-moz-transition: background-color .075s ease-in-out, color .075s ease-in-out;
+				-webkit-transition: background-color .075s ease-in-out, color .075s ease-in-out;
+				-ms-transition: background-color .075s ease-in-out, color .075s ease-in-out;
+				transition: background-color .075s ease-in-out, color .075s ease-in-out;
+				position: relative;
+				display: block;
+				text-decoration: none;
+				color: #6b7770;
+				top: -6px;
+				padding: 6px 1.5em 0.25em 1.5em;
+				border-bottom-left-radius: 6px;
+				border-bottom-right-radius: 6px;
+				outline: 0;
+			}
+
+			#nav li:hover, #nav li.active,  # #login_position:hover{
+				top: 3px;
+			}
+
+			#nav li:hover a, #nav li:hover span, #login_position:hover {
+				background: #C1CAC5;
+				color: #fff;
+			}
+
+			#nav li.active a, #nav li.active span,  #login_position:active {
+				background: #C1CAC5;
+				color: #fff;
+			}
+
+/*			#nav li.current a {
+				background: #b1ddab;
+				color: #fff;
+			} */
+
+/* 2조 */
+        #centerlogo{
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+        #centerlogo img {
+            width: 200px;
+            float: left;
+        }
+#login_position{
+    display: inline-block;
+    width: 200px;
+    font-family: 'Open Sans Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #575d59;
+}

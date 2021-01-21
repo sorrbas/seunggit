@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+#information {
+  text-align: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#information_top {
+  text-align: left;
+  padding-left: 50px;
+}
+
+#information_top h1 {
+  font-size: 40px;
+}
+
+#info {
+  width: 700px;
+  font-family: sans-serif;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+#info tr td:first-child {
+  width: 180px;
+  height: 30px;
+  color: #d31010;
+  font-weight: bold;
+}
+
+#info tr td:nth-child(2) {
+  width: 160px;
+  height: 30px;
+  color: #d31010;
+  font-weight: bold;
+}
+
+#info tr td:last-child {
+  text-align: left;
+}
+
+@media screen and (max-width: 1680px) {
+  .image-block,
+  #info {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .image-block,
+  #info {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #information {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .image-block {
+    width: 90%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #information {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .image-block {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  #information_top h1 {
+    font-size: 34px;
+  }
+
+  #info {
+    width: 100%;
+  }
+  #info tr td:first-child {
+    width: 100px;
+    height: 30px;
+    color: #d31010;
+    font-weight: bold;
+  }
+  #info tr td:nth-child(2) {
+    width: 150px;
+    height: 30px;
+    color: #d31010;
+    font-weight: bold;
+  }
+  #info tr td:last-child {
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #information {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .image-block,
+  h1 {
+    display: none;
+  }
+  #info {
+    width: 100%;
+  }
+  #info tr td:first-child {
+    width: 20px;
+    height: 30px;
+    color: #d31010;
+    font-weight: bold;
+  }
+  #info tr td:nth-child(2) {
+    width: 50px;
+    height: 30px;
+    color: #d31010;
+    font-weight: bold;
+  }
+  #info tr td:last-child {
+    text-align: left;
+  }
+}
