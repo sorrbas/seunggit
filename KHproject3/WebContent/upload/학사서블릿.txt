@@ -1,0 +1,202 @@
+package kr.or.kh.haksa;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("*.do")
+public class HaksaServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private StudentDTO studentDTO;
+	private StudentDAO studentDAO;
+	private Connection conn;
+	private int cnt;
+	private ResultSet rs;
+	
+	
+	
+	
+
+	public HaksaServlet() {
+		studentDTO= new StudentDTO();
+
+		try {
+			studentDAO= new StudentDAO();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		doPost(request,response);
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String requestURI = request.getRequestURI(); //프로젝트의 이름과 ~.do를 가져옴 (ex /KHproject2/studentList.do)
+		String contextPath = request.getContextPath(); // 프로젝트의 이름을 끄집어냄 (ex /KHproject2)
+		String command = requestURI.substring(contextPath.length()); //   끄집어 낸 것을 뺀 나머지 (ex /studentList.do)
+        if(command.equals("/studentRegister.do")) { //학생등록
+		String age =request.getParameter("age");
+		String name = request.getParameter("name");
+		String hakbun = request.getParameter("hakbun");
+		studentDTO.setAge(age);
+		studentDTO.setName(name);
+		studentDTO.setHakbun(hakbun);
+		try {
+			conn= studentDAO.getConnection();
+			studentDAO.studentRegistersql(studentDTO);
+			cnt=studentDAO.studentExecuter();
+			 out.print(cnt+"건 학생이 등록되었습니다.<br>");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 	response.sendRedirect("student/studentList.jsp");
+			
+		}
+    }//학생등록
+        else if(command.equals("/studentList.do"))  { //학생전체출력
+        	try {
+        	conn= studentDAO.getConnection();
+        	response.sendRedirect("student/studentList.jsp");
+         /*	out.print("<h1>학생전체출력</h1>");
+           out.print("<table border=1 cellspacing=0 cellpadding=0>");
+        	out.print("<tr>");
+        	out.print("<th>번호</th>");
+        	out.print("<th>나이</th>");
+        	out.print("<th>이름</th>");
+        	out.print("<th>학번</th>");
+        	out.print("</tr>");
+            ResultSet rs = studentDAO.studentListsql();
+				while(rs.next()) {
+					studentDTO.setNo(rs.getInt("no"));
+					studentDTO.setAge(rs.getString("age"));
+					studentDTO.setName(rs.getString("name"));
+					studentDTO.setHakbun(rs.getString("hakbun"));
+					out.print("<tr>");
+					out.print("<td>"+studentDTO.getNo()+"</td>");
+					out.print("<td>"+studentDTO.getAge()+"</td>");
+					out.print("<td>"+studentDTO.getAge()+"</td>");
+					out.print("<td>"+studentDTO.getAge()+"</td>");
+					out.print("</tr>");					
+				}
+				out.print("</table>");
+				*/
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			
+				}//학생 전체출력
+        else if(command.equals("/studentDelete.do")) {//학생삭제
+        	String irumDelete = request.getParameter("irum");
+        	try {
+				 cnt = studentDAO.studentDeleteSql(irumDelete);
+				out.print(cnt+"건 학생이 삭제되었습니다");
+				response.sendRedirect("student/studentList.jsp");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+        }//학생삭제
+			
+        	
+			
+	else if(command.equals("/studentSerach.do")) { //학생검색
+		
+		String irumSearch = request.getParameter("irum");
+		try {
+			rs= studentDAO.studentSearchSql(irumSearch);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	} //학생검색
+	else if(command.equals("/studentupdate.do")) {//학생수정
+		
+		String irumSearch = request.getParameter("irum");
+        try {
+			rs=studentDAO.studentSearchSql(irumSearch);
+			while(rs.next()) {
+			   studentDTO.setNo(rs.getInt("no"));
+			   studentDTO.setAge(rs.getString("age"));
+			   studentDTO.setName(rs.getString("name"));
+			   studentDTO.setHakbun(rs.getString("hakbun"));
+			 
+			}
+			
+			response.sendRedirect("studentConfirm.do");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}//학생수정
+	else if(command.equals("/studentConfirm.do")) {
+		out.print("<style>");
+		out.print("ul{list-style-type:none;}");
+		out.print("</style>");
+		out.print("번호:"+studentDTO.getNo()+"나이:"+studentDTO.getAge()+"이름:"+studentDTO.getName()+"학번:"+studentDTO.getHakbun()+"<br>");
+		out.print("정말로 수정하시겠습니까?");
+		out.print("<h1>최종수정 하기 전 내용입니다.</h1>");
+		out.print("<form action=studentUpdateFinal.do method=get>");
+		out.print("<input type=hidden name=irumUpdate>");
+		out.print("<ul>");
+		out.print("<li><label for=나이변경>나이변경</label>");
+		out.print("<input type=number name=age value=>" );
+		out.print("</li>");
+		out.print("<li><label for=이름변경>이름변경</label>");
+		out.print("<input type=text name=irum value=>");
+		out.print("</li>");
+		out.print("<li><label for=학번변경>학번변경</label>");
+		out.print("<input type=text name=hakbun>");
+		out.print("</li>");
+        out.print("</ul>");
+        out.print("</form>");
+	
+	}
+	else if(command.equals("/studentUpdateFinal.do")) { //학생최종수정
+		String irumUpdate= request.getParameter("irumUpdate");
+		studentDTO.setAge(request.getParameter("age"));
+		studentDTO.setName(request.getParameter("irum"));
+		studentDTO.setHakbun(request.getAuthType());
+		 studentDAO.studentUpdateSql(irumUpdate, studentDTO);
+		
+		
+		
+	}
+	
+}
+}
+	
+	
+	
+	
+        
+	
+
+

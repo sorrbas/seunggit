@@ -1,0 +1,32 @@
+ul#leftmenu{
+ position: fixed;
+ top: 200px;
+ left: 0px;
+ z-index: 9999;
+ list-style-type: none;
+ margin: 0px;
+ padding: 0px;
+}
+ul#leftmenu li{
+ width: 100px;
+ margin-bottom: 2px;
+}
+
+ul#leftmenu li a{
+ background-color: #ccc;
+ color: #fff;
+ text-decoration: none;
+ display: block;
+ width: 90px;
+ padding: 10px 0 10px 10px;
+ -webkit-border-bottom-right-radius: 20px;
+ -webkit-border-top-right-radius: 20px;
+ margin-left: -1px;
+ opacity: 0.6;
+}
+ul#leftmenu .daegu1 a{background-color: red;}
+ul#leftmenu .daegu2 a{background-color: orange;}
+ul#leftmenu .daegu3 a{background-color: pink;}
+ul#leftmenu .daegu4 a{background-color: green;}
+ul#leftmenu .daegu5 a{background-color: blue;}
+ul#leftmenu .daegu6 a{background-color: purple;}
