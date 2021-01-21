@@ -1,0 +1,95 @@
+package testProject;
+import java.util.Scanner;
+public class lotto {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+
+		int lotto[] = new int[7];
+
+		for(int i = 0; i < 7; i++) {
+			lotto[i] = (int)(Math.random()*45)+1;
+			for(int j = 0; j < i; j++) {
+				if(lotto[i] == lotto[j]) {
+					i --;
+					break;
+				}
+			}
+		}
+
+		System.out.print("몇개 사시겠습니까? : ");
+		int n = sc.nextInt();
+
+		System.out.print("당첨번호는 ");
+		for(int i = 0; i < 6; i++) {
+			System.out.print(lotto[i] + "!");
+		}
+		System.out.println("뽀너스번호는 " + lotto[6]);
+
+		System.out.println();
+
+		
+		
+		
+		
+		int[] buylotto = new int[7];
+
+		for(int k = 0; k < n; k++) {
+
+			int cnt = 0;
+
+			for (int l = 0; l < 7; l++) {
+				buylotto[l] = (int)(Math.random()*45)+1;
+				for(int m = 0; m < l; m++) {
+					if(buylotto[l] == buylotto[m]) {
+						l--;
+						break;
+					}
+				
+				}
+			}
+
+			System.out.print("구매한 번호는 ");
+			for(int z = 0; z < 6; z++) {
+				System.out.print(buylotto[z] + ",");
+			}
+			System.out.print("뽀너스 번호는 " + buylotto[6]);
+			for(int i = 0; i <7; i++) {
+				for(int j = 0; j < 7; j++) {
+					if(lotto[i] == buylotto[j]) {
+						cnt++;
+					}
+				}
+			}
+			switch(cnt) {
+			case 7:
+				System.out.println(" 축하합니다 1등입니다!!!");
+				break;
+			case 6:
+				System.out.println(" 축하합니다 2등입니다!!!" + "일치한 번호는 : " + cnt + "개입니다.");
+				break;
+			case 5:
+				System.out.println(" 축하합니다 3등입니다!!!" + "일치한 번호는 " + cnt + "개입니다.");
+				break;
+			case 4:
+				System.out.println(" 축하합니다 4등입니다!!!" + "일치한 번호는 " + cnt + "개입니다.");
+				break;
+			case 3:
+				System.out.println(" 축하합니다 5등입니다!!!" + "일치한 번호는 " + cnt + "개입니다.");
+				break;
+			default :
+				System.out.println(" 입니다. " + "일치한 번호는 " + cnt + "개입니다.");
+				break;
+			}
+			if((cnt == 7) || (cnt == 6)) {
+				break;
+			}
+
+		}
+		// TODO Auto-generated method stub
+
+	}
+}
+
+
