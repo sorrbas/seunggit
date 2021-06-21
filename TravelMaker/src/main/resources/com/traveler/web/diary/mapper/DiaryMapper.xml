@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traveler.web.diary.mapper.DiaryMapper">
+
+<select id="getList" resultType="com.traveler.web.diary.model.DiaryVO">
+<![CDATA[
+select * from traveler_diary where journal_no=#{journal_no} order by diary_no desc
+]]>
+</select>
+
+<insert id="insert" parameterType="com.traveler.web.diary.model.DiaryVO">
+   INSERT INTO traveler_diary (TITLE, DIARY, WRITER, REGDATE, MARKER, IMGLOCS, JOURNAL_NO)
+    VALUES (#{title}, #{diary}, #{writer}, #{regdate}, #{marker}, #{imglocs}, #{journal_no})
+</insert>
+
+<select id="read" resultType="com.traveler.web.diary.model.DiaryVO">
+   select *
+   from traveler_diary 
+   where diary_no = #{diary_no}
+</select>
+
+<delete id="delete">
+   delete from traveler_diary where diary_no = #{diary_no}
+</delete>
+
+<update id="update">
+   update traveler_diary
+   set title = #{title},
+   diary = #{diary},
+   writer = #{writer}
+   where diary_no = #{diary_no}
+</update>
+
+<!-- <select id="getListPaging" resultType="travel.maker.domain.BoardVO"> -->
+<!-- <![CDATA[ -->
+<!--    select * from -->
+<!--    (select /*+INDEX_DESC(tm_board pk_tboard) */ rownum rn, tno, title, writer, regdate -->
+<!--    from tm_board where tno > 0 and rownum > 0 and rownum <= (#{pageNum} * #{amount}) -->
+<!--    )  -->
+<!--    where rn > (#{pageNum} -1) * #{amount} -->
+<!-- ]]> -->
+<!-- </select> -->
+
+</mapper>

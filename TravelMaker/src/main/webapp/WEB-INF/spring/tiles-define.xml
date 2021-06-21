@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+	<!-- main layout -->
+	<definition name="main" template="/WEB-INF/views/main.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/content.jsp" />
+		<put-attribute name="foot" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	<!-- journal list layout -->
+	<definition name="journal/journalList" template="/WEB-INF/views/journal/journalList.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/journal/journalContent.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/journal/journalNav.jsp" />
+	</definition>
+	<!-- journal create layout -->
+	<definition name="journal/createJournal" template="/WEB-INF/views/journal/createJournal.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/journal/createContent.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/journal/journalNav.jsp" />
+	</definition>
+	<!-- journal create layout -->
+	<definition name="journal/updateJournal" template="/WEB-INF/views/journal/updateJournal.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/journal/createContent.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/journal/journalNav.jsp" />
+	</definition>
+	<!-- search list layout -->
+	<definition name="journal/journalSearch" template="/WEB-INF/views/journal/journalSearch.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/journal/searchContent.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/journal/journalNav.jsp" />
+	</definition>
+	<definition name="diary/diarylist" template="/WEB-INF/views/diary/diarylist.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/diary/content.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/journal/journalNav.jsp" />
+	</definition>
+	<definition name="diary/info" template="/WEB-INF/views/diary/info.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/diary/infoContent.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/journal/journalNav.jsp" />
+	</definition>
+	<definition name="diary/update" template="/WEB-INF/views/diary/update.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/diary/updateContent.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/journal/journalNav.jsp" />
+	</definition>
+	<definition name="diary/write" template="/WEB-INF/views/diary/write.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/diary/writeContent.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/journal/journalNav.jsp" />
+	</definition>
+	<definition name="mymap/mymap" template="/WEB-INF/views/mymap/mymap.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="diarylist" value="/WEB-INF/views/mymap/mymaplist.jsp" />
+	</definition>
+</tiles-definitions>

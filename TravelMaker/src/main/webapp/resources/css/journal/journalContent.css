@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Godo';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'KCC-eunyoung';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 400;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+#journalContentContainer{
+	float: left;
+    width: 70%;
+    height: 100%;
+}
+
+h1{
+	font-size: 40px;
+}
+
+#myJournalList{
+	float: left;
+    width: 70%;
+    height: 100%;
+}
+
+#createJournalBox{
+	font-family: 'NanumBarunGothic';
+	letter-spacing: 2px;
+	float: left;
+    width: 30%;
+    background-color: #258FFF;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    padding: 30px 15px;
+    border-radius: 20px;
+}
+
+.plus {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    margin-bottom: 70px;
+}
+.section1 {
+    width: 100%;
+    height: 30%;
+    border-radius: 10px 10px 0px 0px ;
+    background-color:rgb(28, 97, 226);
+}
+.section2 {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 60%;
+    margin-top: 2.5%;
+/*     background-color: #fa88b7;   */
+}
+.bigTitle {
+    width: 100%;
+    color: white;
+}
+#title {
+    position: relative;
+    font-family: 'Godo';
+    padding-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
+    letter-spacing: 1px;
+    font-size: 30px;
+}
+#author {
+    font-family: 'KCC-eunyoung';
+    padding-top: 23px;
+    float: left;
+    font-size: 18px;
+}
+.plusBtn {
+	width: 33px;
+	margin-top: 10px;
+	margin-right: 20px;
+	float: right;
+}
+.btn{
+	display: none;
+} 
+.btnUpdate {
+    position: absolute;
+    margin-top: 15px;
+    right: 53px;
+    border: 0px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgb(6, 41, 65);
+    padding: 5px;
+    font-family: 'NanumBarunGothic';
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.btnDelete {
+    position: absolute;
+    margin-top: 15px;
+    right: 10px;
+    border: 0px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgb(6, 41, 65);
+    padding: 5px;
+    font-family: 'NanumBarunGothic';
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.bigReply {
+    width: 100%;
+    display: flex;
+}
+#regdate {
+    width: 200px;
+    font-family: 'Godo';
+    margin-top: 25px;
+    margin-left: 20px;
+    color: rgb(181, 210, 243);
+}
+#viewImg {
+    float: left;
+    margin-left: 54%;
+    margin-right: 5px;
+    margin-top: 20px;
+    width: 25px;
+}
+#view {
+    float: left;
+    width: 30px;
+    margin-top: 20px;
+}
+.img {
+	float: left;
+    width: 100%;
+    height: 100%;
+    background-color: yellowgreen;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.img:nth-child(2){
+	margin: 0px 10px;
+}

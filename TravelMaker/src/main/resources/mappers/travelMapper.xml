@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traveler.web.journal.journalMapper">
+	<select id="getJournalList"
+		parameterType="com.traveler.web.journal.model.JournalVO"
+		resultType="com.traveler.web.journal.model.JournalVO">
+		SELECT
+		JOURNAL_NO, TITLE, START_DT, END_DT, VIEW_CNT
+		FROM
+		TRAVELER_JOURNAL
+		WHERE
+		AUTHOR = #{author}
+		ORDER BY JOURNAL_NO DESC
+	</select>
+
+
+	<select id="getJournalContent"
+		resultType="com.traveler.web.journal.model.JournalVO"
+		parameterType="com.traveler.web.journal.model.JournalVO">
+		SELECT
+		JOURNAL_NO, TITLE, START_DT, END_DT, MARKER,
+		AUTHOR, THUMBS, VIEW_CNT
+		FROM
+		TRAVELER_JOURNAL
+		WHERE
+		JOURNAL_NO =
+		#{journal_no}
+	</select>
+
+	<insert id="insertJournal"
+		parameterType="com.traveler.web.journal.model.JournalVO">
+		INSERT INTO TRAVELER_JOURNAL ( TITLE, START_DT, END_DT,
+		MARKER, AUTHOR)
+		VALUES (
+		#{title}
+		, #{start_dt}
+		, #{end_dt}
+		, #{marker}
+		,
+		#{author}
+		)
+	</insert>
+
+	<update id="updateJournal"
+		parameterType="com.traveler.web.journal.model.JournalVO">
+		UPDATE TRAVELER_JOURNAL SET
+		TITLE = #{title}
+		, START_DT =
+		#{start_dt}
+		, END_DT = #{end_dt}
+		, MARKER = #{marker}
+		WHERE
+		JOURNAL_NO =
+		${journal_no}
+	</update>
+
+
+
+	<delete id="deleteJournal" parameterType="int">
+		DELETE FROM
+		TRAVELER_JOURNAL
+		WHERE JOURNAL_NO = #{journal_no}
+	</delete>
+
+
+
+	<update id="updateViewCnt"
+		parameterType="com.traveler.web.journal.model.JournalVO">
+		UPDATE TRAVELER_JOURNAL SET
+		VIEW_CNT = VIEW_CNT + 1
+		WHERE
+		JOURNAL_NO = #{journal_no}
+	</update>
+
+	<select id="searchListTitle"
+		resultType="com.traveler.web.journal.model.JournalVO">
+		SELECT
+		* FROM
+		TRAVELER_JOURNAL
+		WHERE
+		TITLE like CONCAT('%', #{title}, '%')
+	</select>
+
+	<select id="searchListDate"
+		resultType="com.traveler.web.journal.model.JournalVO">
+		<![CDATA[
+		SELECT
+		* FROM
+		TRAVELER_JOURNAL
+		WHERE
+		start_dt <= #{searchDate} And end_dt >= #{searchDate} 
+		]]>
+	</select>
+
+	<select id="searchListAuthor"
+		resultType="com.traveler.web.journal.model.JournalVO">
+		SELECT
+		* FROM
+		TRAVELER_JOURNAL
+		WHERE
+		author like CONCAT('%', #{author}, '%')
+	</select>
+
+</mapper>

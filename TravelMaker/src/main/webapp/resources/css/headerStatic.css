@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+.Header{
+	z-index: 999;
+	height: auto;
+    width: -webkit-fill-available;
+    position: fixed;
+    top: 0;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    padding: 10px 30px;
+    background: white;
+    box-shadow:0px 2px 3px 2px grey;
+    -webkit-transition:position 0.5s, font-size 0.5s, color 0.5s, line-height 0.5s, padding 0.5s, background 0.5s, box-shadow 0.5s, -webkit-transform 0.5s;
+    transition:position 0.5s, font-size 0.5s, color 0.5s, line-height 0.5s, padding 0.5s, background 0.5s, box-shadow 0.5s, transform 0.5s;
+}
+
+#logo{
+	float:left;
+}
+
+#header_right{
+	float: right;
+    display: flex;
+}
+#header_right div{
+	padding-left: 20px;
+}
+#header_right a {
+	text-decoration: none;
+	color: black;
+	 margin-right: 10px;
+}
+
+#main_search{
+	position: absolute;
+    width: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    display: flex;
+    -webkit-transition: width 0.5s, top 0.5s, -webkit-transform 0.5s;
+    transition: width 0.5s, top 0.5s, transform 0.5s;
+}
+
+#main_searchbar{
+	background: white;
+    width: 100%;
+    height: 40px;
+    padding-left: 30px;
+    border-radius: 30px;
+    display: flex;
+    -webkit-transition: height 0.5s, -webkit-transform 0.5s;
+    transition: height 0.5s, transform 0.5s;
+}
+
+#search_date, #search_title, #search_author{
+	height: 100%;
+    width: 100%;
+    color: gray;
+    border: none;
+    padding: 0px;
+    overflow: hidden;
+    -webkit-transition: width 0.5s, border-bottom 0.5s, border-radius 0.5s, border-right 0.5s, display 0.5s, -webkit-transform 0.5s;
+    transition: width 0.5s, border-bottom 0.5s, border-radius 0.5s, border-right 0.5s, display 0.5s, transform 0.5s;
+}
+#search_date:focus, #search_title:focus, #search_author:focus{
+	outline: none;
+}
+#search_title{
+    border-bottom: 2px solid red;
+}
+
+#search_date, #search_author{
+	width: 0px;
+}
+#search_btn{
+    display: table;
+    background: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 0px 30px 30px 0px;
+    color: #258FFF;
+    -webkit-transition: width 0.5s, height 0.5s, -webkit-transform 0.5s;
+    transition: width 0.5s, height 0.5s, transform 0.5s;
+}

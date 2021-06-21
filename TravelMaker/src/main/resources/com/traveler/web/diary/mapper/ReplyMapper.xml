@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traveler.web.diary.mapper.ReplyMapper">
+
+<!-- 댓글 조회 -->
+	<select id="viewReply" resultType="com.traveler.web.diary.model.ReplyVO">
+    	SELECT
+    		  DIARY_NO, REPLY, CONTENT, WRITER, REGDATE
+    	 FROM DIARY_REPLY
+    	WHERE DIARY_NO = #{diary_no}
+	</select>
+	
+	
+	<!--  댓글 작성 -->
+	
+	<insert id="writeReply">
+	
+	INSERT INTO DIARY_REPLY(DIARY_NO,CONTENT,WRITER,REGDATE) 
+	VALUES (#{diary_no},#{content},#{writer},#{regdate})
+	
+	</insert>
+	
+	<!--  댓글 수정 -->
+	<update id="updateReply" parameterType="com.traveler.web.diary.model.ReplyVO">
+	
+	UPDATE DIARY_REPLY SET CONTENT = #{content} WHERE REPLY = #{reply}
+	
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteReply" parameterType="com.traveler.web.diary.model.ReplyVO">
+	
+	DELETE FROM DIARY_REPLY WHERE REPLY = #{reply}
+
+	</delete>
+	
+	<!-- 선택된 댓글 조회 -->
+	<select id="selectReply" resultType="com.traveler.web.diary.model.ReplyVO">
+	
+	SELECT DIARY_NO,REPLY,CONTENT,WRITER,REGDATE FROM DIARY_REPLY WHERE REPLY = #{reply}
+	
+	
+	</select>
+	
+	
+	 
+</mapper>

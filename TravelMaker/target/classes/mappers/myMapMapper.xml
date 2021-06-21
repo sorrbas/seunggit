@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traveler.web.map.myMapMapper">
+  <select id="getMyMapJournal"
+      resultType="com.traveler.web.journal.model.JournalVO"
+      parameterType="com.traveler.web.journal.model.JournalVO">
+      SELECT
+         MARKER, JOURNAL_NO
+      FROM
+         TRAVELER_JOURNAL
+      WHERE
+        AUTHOR = #{author}
+   </select>
+   
+    <select id="getMyMapJournalTitle"
+      resultType="com.traveler.web.journal.model.JournalVO"
+      parameterType="com.traveler.web.journal.model.JournalVO">
+      SELECT
+         JOURNAL_NO, TITLE, START_DT, END_DT
+      FROM
+         TRAVELER_JOURNAL
+      WHERE
+       	 JOURNAL_NO = #{journal_no}
+   </select>
+   
+    <select id="getMyMapDiaryList"
+      resultType="com.traveler.web.diary.model.DiaryVO"
+      parameterType="com.traveler.web.diary.model.DiaryVO">
+      SELECT
+         DIARY_NO, TITLE, REGDATE, IMGLOCS, MARKER
+      FROM
+         TRAVELER_DIARY
+      WHERE
+       	JOURNAL_NO = #{journal_no}
+   </select>
+</mapper>

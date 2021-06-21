@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+#login_modal {
+    background-color: rgba(61,81,107,0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: none;
+    z-index : 0;
+}
+#signUp_modal {
+	background-color: rgba(61,81,107,0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: none;
+}
+#searchid_modal, #searchpw_modal {
+	background-color: rgba(61,81,107,0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: none;
+    z-index : 1;
+}
+
+#modal_close, #modal_closee{
+   text-align: right;
+    margin-bottom: 10px;
+}
+#close_btn, #close_btnn{
+   display: inline-block;
+}
+form {
+    width: 320px;
+    padding: 40px 25px 80px;
+    margin: 10% auto;
+    background: #f8d348;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+svg {
+    width: 70%;
+    border-radius: 50%;
+    background: #fff;
+    margin-bottom: 40px;
+    align-self: center;
+    transform-style: preserve-3d;
+}
+
+input {
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+    padding: 10px 15px;
+    margin-top: 15px;
+}
+
+@keyframes lookaway-up {
+    from {
+        transform: rotate3d(.2, 0, -.01, 20deg);
+    }
+
+    to {
+        transform: rotate3d(.2, -.05, -.01, 20deg);
+    }
+}
+
+@keyframes lookaway-down {
+    0% {
+        transform: rotate3d(-.2, 0, -.01, 20deg);
+    }
+
+    100% {
+        transform: rotate3d(-.2, -.05, .01, 20deg);
+    }
+}
+
+.ears {
+    transform-origin: 50% 50% 5px;
+}
+
+.eyes {
+    transform-origin: 50% 50% -40px;
+}
+
+.muzzle {
+    transform-origin: 50% 50% -44px;
+}
+
+.ears, .eyes, .muzzle {
+    transition: transform .5s;
+}
+
+.focused {
+    transition: transform .1s;
+}
+
+.look-away .ears,
+.look-away .eyes,
+.look-away .muzzle {
+    transition-duration: .3s;
+    animation: 3s infinite alternate;
+}
+
+.look-away.up .ears,
+.look-away.up .eyes,
+.look-away.up .muzzle {
+    transform: rotate3d(.2, 0, 0, 20deg) !important;
+}
+
+.look-away.down .ears,
+.look-away.down .eyes,
+.look-away.down .muzzle {
+    transform: rotate3d(-.2, 0, 0, 20deg) !important;    
+}
+
+.look-away.playing.up .ears,
+.look-away.playing.up .eyes,
+.look-away.playing.up .muzzle {
+    animation-name: lookaway-up;
+}
+
+.look-away.playing.down .ears,
+.look-away.playing.down .eyes,
+.look-away.playing.down .muzzle {
+    animation-name: lookaway-down;
+}
+/* 아이디 중복 안함 */
+.input_id1{
+	color:green;
+	display:none;
+}
+/* 아이디 중복 */
+.input_id2{
+	color:red;
+	display:none;
+}
+/* 로그인 실패 경고 */
+.login_warn {
+	margin_top : 30px;
+	text-align : center;
+	color : red;
+}
+/* 유효성 검사 문구 */
+.final_id_ck{
+	display: none;
+}
+.final_pw_ck{
+	display: none;
+}
+.final_pwck_ck{
+	display: none;
+}
+.final_name_ck{
+	display: none;
+}
+.final_email_ck{
+	display: none;
+}
+.final_emailnum_ck{
+	display: none;
+}
+/* 비밀번호 확인 일치 유효성 */
+.input_pwck1 {
+	color : green;
+	display : none;
+}
+.input_pwck2 {
+	color : red;
+	display : none;
+}
+#input_email_check_box_false{
+	background-color: #ebebe4;
+}
+#input_email_check_box_true{
+	background-color: white;
+}
+.correct{
+	color : green;
+}
+.incorrect{
+	color : red;
+}

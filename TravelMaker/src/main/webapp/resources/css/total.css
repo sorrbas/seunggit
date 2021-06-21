@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+*{
+	box-sizing: border-box; /* 오페라(Opera) */
+	-moz-box-sizing: border-box; /* 파이어폭스(Firefox)*/
+	-webkit-box-sizing: border-box; /* 웹킷(Webkit) & 크롬(Chrome)*/
+}
+
+body{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+    height: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+ul{
+	list-style-type: none;
+}
